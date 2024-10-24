@@ -24,6 +24,7 @@ public class AuthorController {
         return "create-author";  // Имя шаблона для создания автора
     }
 
+
     // Обработка отправки формы создания автора
     @PostMapping("/authors")
     public String createAuthor(@ModelAttribute Author author) {
