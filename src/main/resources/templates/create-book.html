@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Book</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- подключи свой CSS -->
+</head>
+<body>
+<h1>Create New Book</h1>
+
+<form action="/books" method="post">
+    <input type="text" name="title" placeholder="Book Title" required>
+    <select name="author.id" required>
+        <option value="">Select Author</option>
+        <tr th:each="author : ${authors}">
+            <option th:value="${author.id}" th:text="${author.author_name}"></option>
+        </tr>
+    </select>
+    <button type="submit">Add Book</button>
+</form>
+
+
+<div>
+    <a th:href="@{/books}">Back to Book List</a>
+</div>
+</body>
+</html>
