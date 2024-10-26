@@ -38,6 +38,7 @@ public class BookController {
         return "book_list";  // Имя шаблона для отображения списка книг
     }
 
+
     // Обработка отправки формы создания книги
     @PostMapping("/books")
     public String createBook(@ModelAttribute Book book) {

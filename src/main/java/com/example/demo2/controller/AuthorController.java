@@ -42,5 +42,6 @@ public class AuthorController {
         return "author_list";  // Имя шаблона для отображения списка авторов
     }
 
+
 }
 
