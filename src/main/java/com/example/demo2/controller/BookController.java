@@ -31,6 +31,7 @@ public class BookController {
         return "create-book";  // Имя шаблона для создания книги
     }
 
+
     @GetMapping("/books")
     public String listBooks(Model model) {
         model.addAttribute("books", bookService.findAll());

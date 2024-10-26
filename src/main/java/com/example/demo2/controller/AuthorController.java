@@ -41,5 +41,6 @@ public class AuthorController {
         model.addAttribute("authors", authorService.findAll());
         return "author_list";  // Имя шаблона для отображения списка авторов
     }
+
 }
 
