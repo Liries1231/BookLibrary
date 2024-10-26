@@ -6,19 +6,28 @@
 <body>
 <h1>Books</h1>
 <a href="/books/new">Create New Book</a>
+<a href="/authors/new">Create New Author</a>
 <table>
     <thead>
     <tr>
+        <th>Book ID</th>
         <th>Title</th>
-        <th>Author</th>
+        <th>Author ID</th>
+        <th>Author Name</th>
     </tr>
+
 
 
     </thead>
     <tbody>
     <tr th:each="book : ${books}">
+        <td th:text="${book.id}"></td>
         <td th:text="${book.title}"></td>
-
+        <td th:text="${book.author.id}"></td>
+        <td th:text="${book.author.author_name}"></td>
+        <td>
+            <a th:href="@{/books/delete/{id}(id=${book.id})}">Delete</a>
+        </td>
     </tr>
     </tbody>
 </table>

@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class BookController {
@@ -21,8 +24,6 @@ public class BookController {
     }
 
 
-
-
     // Отображение формы для создания книги
     @GetMapping("/books/new")
     public String showCreateForm(Model model) {
@@ -34,8 +35,15 @@ public class BookController {
 
     @GetMapping("/books")
     public String listBooks(Model model) {
+        List<Book> booksList = bookService.findAll();
         model.addAttribute("books", bookService.findAll());
+
         return "book_list";  // Имя шаблона для отображения списка книг
+    }
+    @GetMapping("/books/delete/{id}")
+    public String delete(@PathVariable Long id){
+        bookService.deleteById(id);
+        return "redirect:/books";
     }
 
 

@@ -17,6 +17,7 @@ public class BookService {
 
 
 
+
     public Page<Book> getAllBooks(Pageable pageable){
         return bookRep.findAll(pageable);
     }
@@ -31,6 +32,9 @@ public class BookService {
 
     public List<Book> findAll(){
         return bookRep.findAll();
+    }
+    public void deleteById(Long id){
+        bookRep.deleteById(id);
     }
 
 
