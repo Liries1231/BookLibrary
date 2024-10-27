@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -25,17 +26,21 @@ public class AuthorController {
     }
 
 
-    // Обработка отправки формы создания автора
-
-
 
     @PostMapping("/authors")
     public String createAuthor(@ModelAttribute Author author) {
         authorService.save(author);
-        return "redirect:/authors";  // Перенаправление на список авторов после создания
+        return "redirect:/authors";
+    }
+    @GetMapping("/authors/{authorId}/books")
+    public String showAuthorBooks(@PathVariable Long authorId, Model model) {
+        Author author = authorService.findById(authorId);
+        model.addAttribute("author", author);
+        model.addAttribute("books", author.getBooks());
+        return "author-books";
     }
 
-    // Отображение списка авторов
+
     @GetMapping("/authors")
     public String listAuthors(Model model) {
         model.addAttribute("authors", authorService.findAll());

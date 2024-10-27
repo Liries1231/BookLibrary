@@ -29,7 +29,6 @@ public class BookService {
     public void save(Book book) {
         bookRep.save(book);
     }
-
     public List<Book> findAll(){
         return bookRep.findAll();
     }

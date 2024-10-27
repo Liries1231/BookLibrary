@@ -28,6 +28,11 @@
         <td>
             <a th:href="@{/books/delete/{id}(id=${book.id})}">Delete</a>
         </td>
+        <td>
+            <!-- Ссылка на страницу автора -->
+            <a th:href="@{/authors/{authorId}/books(authorId=${book.author.id})}"
+               th:text="${book.author.author_name}"></a>
+        </td>
     </tr>
     </tbody>
 </table>

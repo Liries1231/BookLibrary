@@ -21,7 +21,6 @@ public class Book {
 
     private String title;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
     private Author author;

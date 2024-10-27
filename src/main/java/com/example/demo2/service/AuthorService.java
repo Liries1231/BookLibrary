@@ -22,8 +22,13 @@ public class AuthorService {
         return authorRep.findAll();
     }
 
+
     public void save(Author author) {
         authorRep.save(author);
+    }
+
+    public Author findById(Long authorId) {
+        return authorRep.findById(authorId).orElseThrow(() -> new RuntimeException("no author" +  authorId));
     }
 }
 
