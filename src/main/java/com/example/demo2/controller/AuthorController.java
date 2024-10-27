@@ -33,6 +33,7 @@ public class AuthorController {
         return "redirect:/authors";
     }
 
+
     @GetMapping("/authors/{authorId}/books")
     public String showAuthorBooks(@PathVariable Long authorId, Model model) {
         Author author = authorService.findById(authorId);

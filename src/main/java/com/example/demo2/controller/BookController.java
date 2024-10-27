@@ -40,6 +40,7 @@ public class BookController {
 
 
 
+
         return "book_list";  // Имя шаблона для отображения списка книг
     }
     @GetMapping("/books/delete/{id}")
