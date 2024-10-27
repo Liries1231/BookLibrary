@@ -39,6 +39,7 @@ public class BookController {
         model.addAttribute("books", bookService.findAll());
 
 
+
         return "book_list";  // Имя шаблона для отображения списка книг
     }
     @GetMapping("/books/delete/{id}")
