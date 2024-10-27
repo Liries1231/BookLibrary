@@ -18,7 +18,6 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
-    // Отображение формы для создания автора
     @GetMapping("/authors/new")
     public String showCreateForm(Model model) {
         model.addAttribute("author", new Author());

@@ -4,6 +4,7 @@ import com.example.demo2.model.Book;
 import com.example.demo2.repository.BookRep;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,8 @@ public class BookService {
 
 
 
-
-    public Page<Book> getAllBooks(Pageable pageable){
+    public Page<Book> getAllBooks(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
         return bookRep.findAll(pageable);
     }
 

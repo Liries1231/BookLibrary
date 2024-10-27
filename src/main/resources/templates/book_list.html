@@ -38,6 +38,14 @@
     </tr>
     </tbody>
 </table>
+<div>
+    <span th:if="${currentPage > 0}">
+        <a th:href="@{/books(page=${currentPage - 1})}">Предыдущая</a>
+    </span>
+    <span th:if="${currentPage < totalPages - 1}">
+        <a th:href="@{/books(page=${currentPage + 1})}">Следующая</a>
+    </span>
+</div>
 </body>
 </html>
 
