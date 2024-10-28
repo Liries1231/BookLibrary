@@ -32,8 +32,8 @@
         </td>
         <td>
             <!-- Ссылка на страницу автора -->
-            <a th:href="@{/authors/{authorId}/books(authorId=${book.author.id})}"
-               th:text="${book.author.author_name}"></a>
+
+            <a th:href="@{/books/{id}(id=${book.id})}" th:text="${book.title}"></a>
         </td>
     </tr>
     </tbody>

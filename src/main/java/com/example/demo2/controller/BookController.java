@@ -43,6 +43,12 @@ public class BookController {
         modelAndView.addObject("totalPages", bookPage.getTotalPages());
         return modelAndView;
     }
+    @GetMapping("/books/{id}")
+    public String getBookDetails(@PathVariable Long id, Model model) {
+        Book book = bookService.getBookById(id);
+        model.addAttribute("book", book);
+        return "book_details";
+    }
 
     @GetMapping("/books/delete/{id}")
     public String delete(@PathVariable Long id){

@@ -15,9 +15,6 @@ import java.util.List;
 public class BookService {
 
     private final BookRep bookRep;
-
-
-
     public Page<Book> getAllBooks(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return bookRep.findAll(pageable);
