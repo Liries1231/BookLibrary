@@ -26,12 +26,12 @@ public class BookController {
 
 
 
-    // Отображение формы для создания книги
+
     @GetMapping("/books/new")
     public String showCreateForm(Model model) {
         model.addAttribute("book", new Book());
-        model.addAttribute("authors", authorService.findAll());  // Добавьте всех авторов в модель
-        return "create-book";  // Имя шаблона для создания книги
+        model.addAttribute("authors", authorService.findAll());
+        return "create-book";
     }
     @GetMapping("/books")
     public ModelAndView listBooks(@RequestParam(defaultValue = "0") int page,
@@ -57,10 +57,10 @@ public class BookController {
     }
 
 
-    // Обработка отправки формы создания книги
+
     @PostMapping("/books")
     public String createBook(@ModelAttribute Book book) {
         bookService.save(book);
-        return "redirect:/books";  // Перенаправление на список книг после создания
+        return "redirect:/books";
     }
 }

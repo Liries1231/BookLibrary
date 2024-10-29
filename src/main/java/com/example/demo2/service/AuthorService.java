@@ -10,9 +10,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class AuthorService {
-
     private final AuthorRepository authorRep;
-
     public List<Author> findAll() {
         return authorRep.findAll();
     }

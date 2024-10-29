@@ -13,13 +13,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BookService {
-
     private final BookRep bookRep;
     public Page<Book> getAllBooks(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return bookRep.findAll(pageable);
     }
-
     public Book getBookById(Long id){
         return bookRep.findById(id).orElseThrow(()
                 -> new RuntimeException("No book" ));

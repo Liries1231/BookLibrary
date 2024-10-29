@@ -21,7 +21,7 @@ public class AuthorController {
     @GetMapping("/authors/new")
     public String showCreateForm(Model model) {
         model.addAttribute("author", new Author());
-        return "create-author";  // Имя шаблона для создания автора
+        return "create-author";
     }
 
 
